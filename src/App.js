@@ -5,17 +5,15 @@ import HomeMovie from "./pages/HomeMovie";
 import MovieDetail from "./pages/MovieDetail";
 
 function App(props) {
-  const [detailMovie, setdetailMovie] = useState("");
-  console.log("aaaaaa", detailMovie);
   return (
     <Router>
       <div>
         <Switch>
           <Route path="/detail/:movieId">
-            <MovieDetail detailMovie={detailMovie} />
+            <MovieDetail />
           </Route>
           <Route path="/">
-            <HomeMovie setdetailMovie={setdetailMovie} />
+            <HomeMovie />
           </Route>
         </Switch>
       </div>
