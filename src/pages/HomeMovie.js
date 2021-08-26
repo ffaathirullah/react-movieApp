@@ -6,11 +6,19 @@ import axios from "axios";
 import SearchBox from "../components/SearchBox";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import MovieDetail from "./MovieDetail";
+import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
 
 const HomeMovie = (props) => {
   const { setdetailMovie } = props;
   const [movies, setMovie] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+
+  const history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   useEffect(() => {
     axios
@@ -41,4 +49,4 @@ const HomeMovie = (props) => {
   );
 };
 
-export default HomeMovie;
+export default withRouter(HomeMovie);
